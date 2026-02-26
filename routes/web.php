@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', IndexController::class);
 Route::get('/about', AboutController::class);
 Route::get('/contact', ContactController::class);
-Route::resource('blog', PostController::class)->except(['destroy']);
+Route::resource('blog', PostController::class);
 
 Route::resource('comments', CommentController::class);
 
