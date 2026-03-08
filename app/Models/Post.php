@@ -14,7 +14,7 @@ class Post extends Model
    protected $keyType='string';
    public $increment=false;
    protected $table="post";
-   protected $fillable = ['title','body','author','published'];
+   protected $fillable = ['title','body','author','published','user_id'];
    protected $guarded = ['id'];
    public function comments()
    {
@@ -23,5 +23,9 @@ class Post extends Model
    public function tags()
    {
       return $this->belongsToMany(Tag::class);
+   }
+   public function user()
+   {
+      return $this->belongsTo(User::class);
    }
 }

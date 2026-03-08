@@ -1,9 +1,9 @@
 <x-layout :title="$pageTitle">
-    <h2>{{ $Post->title }}</h2>
-    <p>{{ $Post->body }}</p>
-    <p>{{ $Post->author }}</p>
+    <h2>{{ $post->title }}</h2>
+    <p>{{ $post->body }}</p>
+   <p>{{ $post->user?->name }}</p>
     <ul class="mt-6 space-y-4">
-        @foreach ($Post->comments as $comment )
+        @foreach ($post->comments as $comment )
         <li class="p-4 bg-gray-100 rounded-md shadow-sm">
             <p class="text-gray-800">{{ $comment->contant }}</p>
             <span class="mt-1 text-sm text-gray-600">-{{ $comment->author }}</span>
@@ -15,7 +15,7 @@
     <div>
     <form action="/comments" method="post" class="mt-8 bg-white p-6 rounded-xl shadow-md">
         @csrf
-        <input type="hidden" name="post_id" value="{{ $Post->id }}">
+        <input type="hidden" name="post_id" value="{{ $post->id }}">
 
         <div class="space-y-6">
 
